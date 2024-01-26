@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8clqhbx0rqax"]
+[gd_scene load_steps=3 format=3 uid="uid://b8clqhbx0rqax"]
 
 [ext_resource type="Script" path="res://scripts/results.gd" id="1_bjfhi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bl3j7"]
 
 [node name="Results" type="Node2D"]
 script = ExtResource("1_bjfhi")
@@ -8,17 +10,31 @@ script = ExtResource("1_bjfhi")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InfoLabel" type="Label" parent="CanvasLayer"]
-offset_left = 475.0
-offset_top = 16.0
-offset_right = 531.0
-offset_bottom = 39.0
+offset_left = 531.0
+offset_top = 19.0
+offset_right = 587.0
+offset_bottom = 42.0
 text = "Results"
 
 [node name="NextButton" type="Button" parent="CanvasLayer"]
-offset_left = 930.0
-offset_top = 361.0
-offset_right = 1051.0
-offset_bottom = 408.0
+offset_left = 1009.0
+offset_top = 587.0
+offset_right = 1130.0
+offset_bottom = 634.0
 text = "Next "
+
+[node name="TeamATextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 120.0
+offset_right = 475.0
+offset_bottom = 581.0
+texture = SubResource("CanvasTexture_bl3j7")
+
+[node name="TeamBTextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 680.0
+offset_top = 115.0
+offset_right = 1062.0
+offset_bottom = 572.0
+texture = SubResource("CanvasTexture_bl3j7")
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
