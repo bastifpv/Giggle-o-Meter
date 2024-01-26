@@ -14,4 +14,6 @@ func get_param(name):
 		return _params[name]
 	return null
 	
+func quit_game():
+	get_tree().quit()
 	

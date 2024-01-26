@@ -1,16 +1,26 @@
 extends Node2D
 
 func _ready():
-	var active_team = SceneSwitcher.get_param("active_team")
-	print(active_team) 
-	$CanvasLayer/ActivePlayer.text = "Active team: " + str(active_team)
+	#sets team numer to layout
+	$CanvasLayer/ActivePlayer.text = "Active team: " + str(GlobalSettings.active_team)
 
 
 func _on_next_button_pressed():
-	# get variable
-	var active_team = SceneSwitcher.get_param("active_team")
+	#counts if both player have done their turn
+	print(GlobalSettings.current_round)
+	if GlobalSettings.count_both_players_turn < 1:
+		#reverse the active team
+		if GlobalSettings.active_team == 1:
+			GlobalSettings.active_team = 0
+		else: 
+			GlobalSettings.active_team = 1
+			
+		#call other scene
+		GlobalSettings.count_both_players_turn +=1 
+		SceneSwitcher.change_scene("res://scenes/team_turn.tscn")
+	else:
+		GlobalSettings.count_both_players_turn = 0
+		SceneSwitcher.change_scene("res://scenes/battle.tscn")
+	
 
-	if active_team == 0: # 0 Team A and 1 is Team B
-		SceneSwitcher.change_scene("res://scenes/team_turn.tscn", {"active_team":1})
-	elif  active_team == 1: # 0 Team A and 1 is Team B
-		SceneSwitcher.change_scene("res://scenes/battle.tscn", {"active_team":0})
+
