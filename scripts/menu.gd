@@ -4,7 +4,9 @@ func _ready():
 	pass
 
 func _on_play_button_pressed():
-	SceneSwitcher.change_scene("res://scenes/team_turn.tscn", {"active_team":0})
+	GlobalSettings.active_team = randi_range(0, 1)
+	print(GlobalSettings.active_team)
+	SceneSwitcher.change_scene("res://scenes/team_turn.tscn")
 
 
 
