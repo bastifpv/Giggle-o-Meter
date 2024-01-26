@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://x3kr1nrmaymf"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_wla1y"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_wla1y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer"]
+offset_left = 481.0
+offset_top = 30.0
+offset_right = 597.0
+offset_bottom = 105.0
+text = "Menu"
+
+[node name="PlayButton" type="Button" parent="CanvasLayer"]
+offset_left = 452.0
+offset_top = 116.0
+offset_right = 650.0
+offset_bottom = 246.0
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
+offset_left = 458.0
+offset_top = 268.0
+offset_right = 656.0
+offset_bottom = 398.0
+text = "Exit"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer"]
+offset_left = 458.0
+offset_top = 422.0
+offset_right = 656.0
+offset_bottom = 552.0
+text = "Options"
+
+[connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_play_button_pressed"]
