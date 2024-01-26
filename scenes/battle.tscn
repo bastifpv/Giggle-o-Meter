@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl4otsd4swfcr"]
+
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_kg5pu"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_kg5pu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 519.0
+offset_top = 22.0
+offset_right = 612.0
+offset_bottom = 66.0
+text = "Battle"
+
+[node name="NextButton" type="Button" parent="CanvasLayer"]
+offset_left = 912.0
+offset_top = 531.0
+offset_right = 1112.0
+offset_bottom = 616.0
+text = "Next"
+
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]

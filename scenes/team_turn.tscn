@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhqv8fcbklfp0"]
+
+[ext_resource type="Script" path="res://scripts/team_turn.gd" id="1_oypoc"]
+
+[node name="TeamTurn" type="Node2D"]
+script = ExtResource("1_oypoc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 433.0
+offset_top = 13.0
+offset_right = 646.0
+offset_bottom = 107.0
+text = "Team Turn"
+
+[node name="NextButton" type="Button" parent="CanvasLayer"]
+offset_left = 970.0
+offset_top = 521.0
+offset_right = 1100.0
+offset_bottom = 599.0
+text = "Done"
+
+[node name="ActivePlayer" type="Label" parent="CanvasLayer"]
+offset_left = 86.0
+offset_top = 268.0
+offset_right = 293.0
+offset_bottom = 408.0
+text = "A or B"
+
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
