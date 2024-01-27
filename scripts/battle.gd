@@ -92,15 +92,21 @@ func _show_team_a():
 	
 	var dictA = list_TeamA[GlobalSettings.current_round]
 	var CardID = dictA["cardID"]
+	var CardData = dictA["cardData"]
 	var UserInput = dictA["userInput"]
-	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/Label.text = UserInput
+	var completeText = CardData.replace("__________", "[b] " + str(UserInput) + "[/b]")
+	print(completeText)
+	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/RichTextLabel.text = "[color=black] " + str(completeText) + " [/color]"
 		
 func _show_team_b():
 	var list_TeamB = GlobalSettings.list_TeamB
 	var dictB = list_TeamB[GlobalSettings.current_round]
 	var CardID = dictB["cardID"]
+	var CardData = dictB["cardData"]
 	var UserInput = dictB["userInput"]
-	$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/Label.text = UserInput
+	var completeText = CardData.replace("__________", "[b] " + str(UserInput) + "[/b]")
+	print(completeText)
+	$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/RichTextLabel.text = "[color=black] " + str(completeText) + " [/color]"
 		
 
 func _record_sound():

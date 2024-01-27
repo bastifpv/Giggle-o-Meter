@@ -81,6 +81,7 @@ offset_left = 12.0
 offset_top = 23.0
 offset_right = 236.0
 offset_bottom = 319.0
+bbcode_enabled = true
 text = "Card1Asset"
 
 [node name="Card2" type="Button" parent="CanvasLayer/Cards"]
@@ -109,6 +110,7 @@ offset_left = 19.0
 offset_top = 23.0
 offset_right = 232.0
 offset_bottom = 311.0
+bbcode_enabled = true
 text = "Card3Asset"
 
 [connection signal="pressed" from="CanvasLayer/SelectedCard/TextureRect/Button" to="." method="_on_button_confirm_round_pressed"]
