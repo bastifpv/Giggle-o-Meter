@@ -96,6 +96,7 @@ offset_bottom = -4.0
 texture = SubResource("CanvasTexture_ugpig")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 13.0
 offset_right = 213.0

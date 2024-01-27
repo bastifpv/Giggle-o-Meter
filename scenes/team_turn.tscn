@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhqv8fcbklfp0"]
+[gd_scene load_steps=17 format=3 uid="uid://bhqv8fcbklfp0"]
 
 [ext_resource type="Script" path="res://scripts/team_turn.gd" id="1_oypoc"]
+[ext_resource type="Texture2D" uid="uid://d1c82xwgwj8bv" path="res://assets/cardBack_blue1.png" id="2_svx21"]
+[ext_resource type="Texture2D" uid="uid://c1auoslwtr7i" path="res://assets/cardBack_blue3.png" id="3_8byn3"]
+[ext_resource type="Texture2D" uid="uid://dvligi10oqd4o" path="res://assets/cardBack_red1.png" id="3_okupn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jixoq"]
 font_size = 50
@@ -9,6 +12,33 @@ font_size = 50
 font_size = 30
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7cgrp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0a82j"]
+texture = ExtResource("2_svx21")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jv6x"]
+texture = ExtResource("3_8byn3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anydo"]
+texture = ExtResource("3_okupn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i1qig"]
+texture = ExtResource("2_svx21")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_400k8"]
+texture = ExtResource("3_8byn3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dm0q5"]
+texture = ExtResource("3_okupn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4i70"]
+texture = ExtResource("2_svx21")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ppr8"]
+texture = ExtResource("3_8byn3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wg6e2"]
+texture = ExtResource("3_okupn")
 
 [node name="TeamTurn" type="Node2D"]
 script = ExtResource("1_oypoc")
@@ -74,13 +104,21 @@ offset_left = 100.0
 offset_top = 185.0
 offset_right = 350.0
 offset_bottom = 585.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_0a82j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3jv6x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anydo")
 
 [node name="Card1RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cards/Card1"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 23.0
-offset_right = 236.0
-offset_bottom = 319.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 bbcode_enabled = true
 text = "Card1Asset"
@@ -90,13 +128,21 @@ offset_left = 450.0
 offset_top = 185.0
 offset_right = 700.0
 offset_bottom = 585.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_i1qig")
+theme_override_styles/hover = SubResource("StyleBoxTexture_400k8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dm0q5")
 
 [node name="Card2RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cards/Card2"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 23.0
-offset_right = 238.0
-offset_bottom = 319.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 text = "Card2Asset"
 
@@ -105,13 +151,21 @@ offset_left = 800.0
 offset_top = 185.0
 offset_right = 1050.0
 offset_bottom = 585.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4i70")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7ppr8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wg6e2")
 
 [node name="Card3RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cards/Card3"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 23.0
-offset_right = 232.0
-offset_bottom = 311.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 bbcode_enabled = true
 text = "Card3Asset"
