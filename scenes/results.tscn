@@ -9,6 +9,54 @@ script = ExtResource("1_bjfhi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="CardsALabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.073
+anchor_bottom = 0.093
+offset_left = 102.0
+offset_top = 576.0
+offset_right = 214.904
+offset_bottom = 541.736
+text = "Used Cards: "
+
+[node name="userInputALabel" type="Label" parent="CanvasLayer"]
+offset_left = 103.0
+offset_top = 595.0
+offset_right = 280.0
+offset_bottom = 632.0
+text = "Input: "
+
+[node name="scoreALabel" type="Label" parent="CanvasLayer"]
+offset_left = 102.0
+offset_top = 615.0
+offset_right = 150.0
+offset_bottom = 657.0
+text = "Score:"
+
+[node name="CardsBLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.073
+anchor_bottom = 0.093
+offset_left = 690.0
+offset_top = 576.0
+offset_right = 802.904
+offset_bottom = 541.736
+text = "Used Cards: "
+
+[node name="userInputBLabel" type="Label" parent="CanvasLayer"]
+offset_left = 690.0
+offset_top = 595.0
+offset_right = 867.0
+offset_bottom = 632.0
+text = "Input: "
+
+[node name="scoreBLabel" type="Label" parent="CanvasLayer"]
+offset_left = 691.0
+offset_top = 617.0
+offset_right = 739.0
+offset_bottom = 663.0
+text = "Score:"
+
 [node name="InfoLabel" type="Label" parent="CanvasLayer"]
 offset_left = 531.0
 offset_top = 19.0
@@ -24,10 +72,10 @@ offset_bottom = 634.0
 text = "Next "
 
 [node name="TeamATextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 87.0
-offset_top = 120.0
-offset_right = 475.0
-offset_bottom = 581.0
+offset_left = 95.0
+offset_top = 110.0
+offset_right = 483.0
+offset_bottom = 571.0
 texture = SubResource("CanvasTexture_bl3j7")
 
 [node name="TeamBTextureRect" type="TextureRect" parent="CanvasLayer"]
@@ -36,5 +84,19 @@ offset_top = 115.0
 offset_right = 1062.0
 offset_bottom = 572.0
 texture = SubResource("CanvasTexture_bl3j7")
+
+[node name="TeamALabel" type="Label" parent="CanvasLayer"]
+offset_left = 244.0
+offset_top = 78.0
+offset_right = 321.0
+offset_bottom = 101.0
+text = "Team A"
+
+[node name="TeamBLabel" type="Label" parent="CanvasLayer"]
+offset_left = 832.0
+offset_top = 76.0
+offset_right = 909.0
+offset_bottom = 99.0
+text = "Team B"
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
