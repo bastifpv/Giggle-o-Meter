@@ -35,7 +35,7 @@ func _ready():
 	await get_tree().create_timer(5.0).timeout
 	
 	# show results team A
-	_calculate_score(list_TeamA)
+	_set_final_scoreA(50)
 		
 	await get_tree().create_timer(2.0).timeout
 
@@ -59,7 +59,7 @@ func _ready():
 	await get_tree().create_timer(5.0).timeout
 	
 	# show results team B
-	_calculate_score(list_TeamB)
+	_set_final_scoreB(50)
 	
 
 func _play_player_a():
@@ -94,7 +94,6 @@ func _show_team_a():
 	var CardID = dictA["cardID"]
 	var UserInput = dictA["userInput"]
 	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/Label.text = UserInput
-	#_calculate_score(list_TeamA)
 		
 func _show_team_b():
 	var list_TeamB = GlobalSettings.list_TeamB
@@ -102,13 +101,7 @@ func _show_team_b():
 	var CardID = dictB["cardID"]
 	var UserInput = dictB["userInput"]
 	$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/Label.text = UserInput
-	#_calculate_score(list_TeamB)
 		
-func _calculate_score(list_Team):
-	for dictTeam in list_Team:
-		dictTeam["score"] = 6969
-		print(" ===" + str(dictTeam))
-		$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dictTeam["score"])
 
 func _record_sound():
 	print("Recording started...")
