@@ -171,15 +171,11 @@ func _audio_to_score():
 	return final_score
 
 func _set_final_scoreA(score):
-	var dict = {}
-	dict = GlobalSettings.list_TeamA[GlobalSettings.current_round]
-	dict["score"] = score
-	GlobalSettings.list_TeamA = dict
+	var dict = GlobalSettings.list_TeamA[GlobalSettings.current_round]
+	GlobalSettings.list_TeamA[GlobalSettings.current_round]["score"] = score
 	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
 	
 func _set_final_scoreB(score):
-	var dict = {}
-	dict = GlobalSettings.list_TeamB[GlobalSettings.current_round]
-	dict["score"] = score
-	GlobalSettings.list_TeamB = dict
+	var dict = GlobalSettings.list_TeamB[GlobalSettings.current_round]
+	GlobalSettings.list_TeamB[GlobalSettings.current_round]["score"] = score
 	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])

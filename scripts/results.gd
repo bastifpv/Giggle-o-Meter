@@ -10,7 +10,8 @@ func _ready():
 	var cardIDs_TeamB = []
 	var userInput_TeamB = []
 	var score_TeamB = []
-	
+	print(results_TeamA)
+	print(results_TeamB)
 	# get arrays with stats from all played rounds
 	for i in results_TeamA:
 		cardIDs_TeamA.append(i["cardID"])
