@@ -98,13 +98,22 @@ func _record_sound():
 	#if GlobalSettings.active_team == 0:
 	# print("Recording active team 0...")
 	
+	#print("Recording object: " + str(recording))
+	print("Is Recording active?: " + str(effect.is_recording_active()))
+	# start recording
 	effect.set_recording_active(true)
 	await get_tree().create_timer(3.0).timeout
+	
+	# stop recording
+	effect.set_recording_active(false)
+	print("Is Recording active still?: " + str(effect.is_recording_active()))
+	
 	recording = effect.get_recording()
 	print("Recording object: " + str(recording))
+
 	
-	await get_tree().create_timer(10.0).timeout
-	
+
+	print("Saving...")
 	# save recording
 	_save_recording()
 	
@@ -112,25 +121,6 @@ func _record_sound():
 	
 	$AudioStreamPlayer.stream = recording
 	$AudioStreamPlayer.play()
-	await get_tree().create_timer(2.0).timeout
-		
-		# save recording
-		#_save_recording()
-		
-	# recording for team B
-	#elif GlobalSettings.active_team == 1:
-		#print("Recording active team 1...")
-		
-		#effect.set_recording_active(true)
-		#recording = effect.get_recording()
-		
-		#effect.set_recording_active(true)
-		#$AudioStreamPlayer.stream = recording
-		#$AudioStreamPlayer.play()
-		#await get_tree().create_timer(2.0).timeout
-		
-		# save recording
-		#_save_recording()
 	
 func _analyse_sound():
 	pass
