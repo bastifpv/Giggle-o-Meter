@@ -25,6 +25,10 @@ func _ready():
 	
 	# show user input team A
 	_show_team_a()
+	
+	_play_player_a()
+	
+	await get_tree().create_timer(5.0).timeout
 
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
@@ -49,6 +53,8 @@ func _ready():
 	
 	_play_player_b()
 	
+	await get_tree().create_timer(5.0).timeout
+	
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
 	
@@ -63,20 +69,24 @@ func _ready():
 	
 
 func _play_player_a():
+	var text = str(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("cardData")).replace("__________", str(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput")))
+	print(text)
 	if OS.get_name() == "Linux":
-		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
+		_play_text(text, 120)
 	elif OS.get_name() == "Windows":
-		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+		_play_text(text, 0)
 	elif OS.get_name() == "Android":
-		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+		_play_text(text, 0)
 	
 func _play_player_b():
+	var text = str(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("cardData")).replace("__________", str(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput")))
+	print(text)
 	if OS.get_name() == "Linux":
-		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
+		_play_text(text, 120)
 	elif OS.get_name() == "Windows":
-		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+		_play_text(text, 0)
 	elif OS.get_name() == "Android":
-		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+		_play_text(text, 0)
 			
 
 func _on_next_button_pressed():
@@ -95,7 +105,7 @@ func _show_team_a():
 	var CardData = dictA["cardData"]
 	var UserInput = dictA["userInput"]
 	var completeText = CardData.replace("__________", "[b] " + str(UserInput) + "[/b]")
-	print(completeText)
+	#print(completeText)
 	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/RichTextLabel.text = "[color=black] " + str(completeText) + " [/color]"
 		
 func _show_team_b():
@@ -105,7 +115,7 @@ func _show_team_b():
 	var CardData = dictB["cardData"]
 	var UserInput = dictB["userInput"]
 	var completeText = CardData.replace("__________", "[b] " + str(UserInput) + "[/b]")
-	print(completeText)
+	#print(completeText)
 	$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/RichTextLabel.text = "[color=black] " + str(completeText) + " [/color]"
 		
 
