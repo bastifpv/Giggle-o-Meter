@@ -9,14 +9,10 @@ script = ExtResource("1_wla1y")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -158.0
-offset_top = 151.0
-offset_right = 158.0
-offset_bottom = 258.0
-grow_horizontal = 2
+offset_left = 414.0
+offset_top = 145.0
+offset_right = 659.0
+offset_bottom = 252.0
 text = "Play"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
