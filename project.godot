@@ -25,6 +25,11 @@ driver/enable_input=true
 SceneSwitcher="*res://scripts/scene_switcher.gd"
 GlobalSettings="*res://scripts/GlobalSettings.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [rendering]
 
 renderer/rendering_method="mobile"
