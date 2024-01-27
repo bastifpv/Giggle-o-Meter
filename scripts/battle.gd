@@ -10,23 +10,27 @@ func _ready():
 	$CanvasLayer/TeamBTextureRect.visible = false
 	$CanvasLayer/TeamATextureRect.visible = true
 	_show_team_a()
+	#play sound, wait for recording and set score for player 1
 	_play_sound()
-	await get_tree().create_timer(3.0).timeout
-	_audio_to_score()
+	await get_tree().create_timer(2.0).timeout
+	_set_final_scoreA(_audio_to_score())
 	
 	await get_tree().create_timer(2.0).timeout
-
 	$CanvasLayer/TeamATextureRect.visible = false
 	$CanvasLayer/TeamBTextureRect.visible = true
-	
 	_show_team_b()
+	
+	#play sound, wait for recording and set score for player 1
+	_play_sound()
+	await get_tree().create_timer(2.0).timeout
+	_set_final_scoreB(_audio_to_score())
 	
 	#await get_tree().create_timer(2.0).timeout
 	
 	#_on_next_button_pressed()
 
 func _process(delta):
-	if (AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"),0) > -180):
+	if (AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"),0) > -190):
 			array.append(AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"),0))
 	
 
@@ -45,7 +49,6 @@ func _show_team_a():
 	var CardID = dictA["cardID"]
 	var UserInput = dictA["userInput"]
 	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/Label.text = UserInput
-	_calculate_score(list_TeamA)
 		
 func _show_team_b():
 	var list_TeamB = GlobalSettings.list_TeamB
@@ -53,13 +56,21 @@ func _show_team_b():
 	var CardID = dictB["cardID"]
 	var UserInput = dictB["userInput"]
 	$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/Label.text = UserInput
-	_calculate_score(list_TeamB)
+	
 		
-func _calculate_score(list_Team):
-	for dictTeam in list_Team:
-		dictTeam["score"] = 6969
-		print(" ===" + str(dictTeam))
-		$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dictTeam["score"])
+func _set_final_scoreA(score):
+	var dict = {}
+	dict = GlobalSettings.list_TeamA[GlobalSettings.current_round]
+	dict["score"] = score
+	GlobalSettings.list_TeamA = dict
+	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
+	
+func _set_final_scoreB(score):
+	var dict = {}
+	dict = GlobalSettings.list_TeamB[GlobalSettings.current_round]
+	dict["score"] = score
+	GlobalSettings.list_TeamB = dict
+	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
 
 func _record_sound():
 	pass
