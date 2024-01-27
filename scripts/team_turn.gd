@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 	#sets team numer to layout
-	$CanvasLayer/ActivePlayer.text = "Active team: " + str(GlobalSettings.active_team)
+	$CanvasLayer/PlayerInfo.text = "Team " + str(GlobalSettings.active_team) + "'s turn"
 
 
 func _on_next_button_pressed():
@@ -24,3 +24,29 @@ func _on_next_button_pressed():
 	
 
 
+func card_pressed():
+	$CanvasLayer/Cards.visible = false
+	$CanvasLayer/PickACard.visible = false
+	$CanvasLayer/SelectedCard.visible = true
+
+func _on_card_1_pressed():
+	card_pressed()
+	print('press card 1')
+	pass # Replace with function body.
+
+
+func _on_card_2_pressed():
+	card_pressed()
+	print('press card 2')
+	pass # Replace with function body.
+
+
+func _on_card_3_pressed():
+	card_pressed()
+	print('press card 3')
+	pass # Replace with function body.
+
+
+func _on_button_confirm_round_pressed():
+	print("call next player")
+	pass # Replace with function body.
