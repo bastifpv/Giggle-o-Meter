@@ -37,13 +37,6 @@ label_settings = SubResource("LabelSettings_eop0t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NextButton" type="Button" parent="CanvasLayer"]
-offset_left = 1096.0
-offset_top = 598.0
-offset_right = 1145.0
-offset_bottom = 638.0
-text = "Done"
-
 [node name="SelectedCard" type="CanvasLayer" parent="CanvasLayer"]
 visible = false
 
@@ -55,6 +48,7 @@ offset_bottom = 632.0
 texture = SubResource("CanvasTexture_7cgrp")
 
 [node name="Label" type="Label" parent="CanvasLayer/SelectedCard/TextureRect"]
+layout_mode = 0
 offset_left = -1.0
 offset_right = 389.0
 offset_bottom = 257.0
@@ -63,7 +57,7 @@ label_settings = SubResource("LabelSettings_66ste")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer/SelectedCard/TextureRect"]
+[node name="UserInputField" type="TextEdit" parent="CanvasLayer/SelectedCard/TextureRect"]
 layout_mode = 0
 offset_top = 275.0
 offset_right = 390.0
@@ -101,7 +95,6 @@ offset_right = 1050.0
 offset_bottom = 585.0
 text = "Card info"
 
-[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/SelectedCard/TextureRect/Button" to="." method="_on_button_confirm_round_pressed"]
 [connection signal="pressed" from="CanvasLayer/Cards/Card1" to="." method="_on_card_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Cards/Card2" to="." method="_on_card_2_pressed"]
