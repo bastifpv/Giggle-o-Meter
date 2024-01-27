@@ -9,31 +9,35 @@ script = ExtResource("1_wla1y")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
-offset_left = 414.0
-offset_top = 145.0
-offset_right = 659.0
-offset_bottom = 252.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_top = 151.0
+offset_right = 158.0
+offset_bottom = 258.0
+grow_horizontal = 2
 text = "Play"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
-offset_left = 459.0
-offset_top = 455.0
-offset_right = 657.0
-offset_bottom = 585.0
+offset_left = 482.0
+offset_top = 450.0
+offset_right = 798.0
+offset_bottom = 557.0
 text = "Exit"
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer"]
-offset_left = 455.0
-offset_top = 282.0
-offset_right = 653.0
-offset_bottom = 412.0
+offset_left = 482.0
+offset_top = 298.0
+offset_right = 798.0
+offset_bottom = 405.0
 text = "Options"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 1183.0
+offset_left = 1301.0
 offset_top = -21.0
-offset_right = 1878.0
-offset_bottom = 1194.0
+offset_right = 2067.0
+offset_bottom = 1312.0
 rotation = 1.5708
 texture = ExtResource("2_tjvi3")
 metadata/_edit_lock_ = true

@@ -111,10 +111,10 @@ offset_bottom = 11.408
 text = "The winner is: "
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 1183.0
+offset_left = 1301.0
 offset_top = -21.0
-offset_right = 1878.0
-offset_bottom = 1194.0
+offset_right = 2067.0
+offset_bottom = 1312.0
 rotation = 1.5708
 texture = ExtResource("2_y4smt")
 metadata/_edit_lock_ = true
