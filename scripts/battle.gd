@@ -7,6 +7,8 @@ var stereo := true
 var mix_rate := 44100  # This is the default mix rate on recordings
 var format := 1  # This equals to the default format: 16 bits
 
+var array = []
+
 func _ready():
 	
 	var list_TeamA = GlobalSettings.list_TeamA
@@ -24,14 +26,12 @@ func _ready():
 	# show user input team A
 	_show_team_a()
 
-
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
 	
 	# record audio team A
 	_record_sound()
 	
-	_analyse_sound()
 	await get_tree().create_timer(5.0).timeout
 	
 	# show results team A
@@ -48,19 +48,14 @@ func _ready():
 	_show_team_b()
 	
 	_play_player_b()
-		
-
-
+	
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
 	
-	#await get_tree().create_timer(2.0).timeout
 
-	
 	# record audio team A
 	_record_sound()
 	
-	_analyse_sound()
 	await get_tree().create_timer(5.0).timeout
 	
 	# show results team B
@@ -164,3 +159,34 @@ func _play_text(text, voiceNr):
 
 	# Say "Hello, world!".
 	DisplayServer.tts_speak(str(text), voice_id)
+
+func _audio_to_score():
+	var score = 0
+	var scoreArr = []
+	var in_min = -200
+	var in_max = 0
+	var out_max = 100
+	var out_min = 0
+	var counter = 0
+	for x in array:
+		var calcedValue = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+		scoreArr.append(calcedValue)
+		score += calcedValue
+		counter +=1
+	var final_score = score / counter
+	print(final_score)
+	return final_score
+
+func _set_final_scoreA(score):
+	var dict = {}
+	dict = GlobalSettings.list_TeamA[GlobalSettings.current_round]
+	dict["score"] = score
+	GlobalSettings.list_TeamA = dict
+	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
+	
+func _set_final_scoreB(score):
+	var dict = {}
+	dict = GlobalSettings.list_TeamB[GlobalSettings.current_round]
+	dict["score"] = score
+	GlobalSettings.list_TeamB = dict
+	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
