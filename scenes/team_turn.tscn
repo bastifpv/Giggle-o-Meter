@@ -11,7 +11,18 @@ font_size = 50
 [sub_resource type="LabelSettings" id="LabelSettings_eop0t"]
 font_size = 30
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_7cgrp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c88h1"]
+bg_color = Color(0.313726, 0.54902, 0.678431, 0.396078)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0a82j"]
 texture = ExtResource("2_svx21")
@@ -71,31 +82,42 @@ offset_left = 380.0
 offset_top = 88.0
 offset_right = 770.0
 offset_bottom = 632.0
-texture = SubResource("CanvasTexture_7cgrp")
+texture = ExtResource("2_svx21")
 
 [node name="SelectedCardInfoRichTextLabel" type="RichTextLabel" parent="CanvasLayer/SelectedCard/TextureRect"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 22.0
-offset_right = 366.0
+layout_mode = 1
+anchors_preset = -1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 360.0
 offset_bottom = 249.0
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[color=black]Asset[/color]"
+text = "Asset"
 
 [node name="UserInputField" type="TextEdit" parent="CanvasLayer/SelectedCard/TextureRect"]
-layout_mode = 0
-offset_top = 275.0
-offset_right = 390.0
-offset_bottom = 473.0
-placeholder_text = "Input you anser here"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -278.0
+offset_right = 170.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_c88h1")
+placeholder_text = "  put your answer here"
 
 [node name="Button" type="Button" parent="CanvasLayer/SelectedCard/TextureRect"]
 layout_mode = 0
 offset_left = 57.0
-offset_top = 480.0
+offset_top = 469.0
 offset_right = 331.0
-offset_bottom = 530.0
-text = "weiter"
+offset_bottom = 519.0
+text = "GO!"
 
 [node name="Cards" type="CanvasLayer" parent="CanvasLayer"]
 

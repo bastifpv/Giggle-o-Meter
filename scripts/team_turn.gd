@@ -27,7 +27,7 @@ func card_pressed():
 	$CanvasLayer/PickACard.visible = false
 	$CanvasLayer/SelectedCard.visible = true
 	
-	$CanvasLayer/SelectedCard/TextureRect/SelectedCardInfoRichTextLabel.text = "[color=black]" + str(database.get_card_info(selectedCardID)[0]["asset"]) + "[/color]"
+	$CanvasLayer/SelectedCard/TextureRect/SelectedCardInfoRichTextLabel.text = str(database.get_card_info(selectedCardID)[0]["asset"])
 	
 func _on_card_1_pressed():
 	selectedCardID = cardData1["cardID"]
