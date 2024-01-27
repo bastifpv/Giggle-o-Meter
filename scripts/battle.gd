@@ -17,7 +17,7 @@ func _ready():
 	
 	_show_team_a()
 	_play_player_a()
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(5.5).timeout
 
 	# record audio team A
 	_record_sound()
@@ -45,7 +45,7 @@ func _ready():
 	
 	_play_player_b()
 	
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(5.5).timeout
 	
 	# Decibel-O-Meter visible
 	$CanvasLayer/ProgressBar.visible = true
@@ -181,11 +181,16 @@ func _audio_to_score():
 	var out_min = 0
 	var counter = 0
 	for x in array:
-		var calcedValue = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+		var calcedValue = ( (x - in_min) * (out_max - out_min) / (in_max - in_min) ) + out_min
 		scoreArr.append(calcedValue)
 		score += calcedValue
 		counter +=1
-	var final_score = score / counter
+		
+	array.sort()
+	#print(scoreArr)
+	#print(array)
+	var final_score = scoreArr[int(counter/2)]
+	#var final_score = score / counter
 	print(final_score)
 	return int(final_score)
 
