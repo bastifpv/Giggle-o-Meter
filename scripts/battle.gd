@@ -187,14 +187,16 @@ func _audio_to_score():
 		counter +=1
 	var final_score = score / counter
 	print(final_score)
-	return final_score
+	return int(final_score)
 
 func _set_final_scoreA(score):
 	var dict = GlobalSettings.list_TeamA[GlobalSettings.current_round]
 	GlobalSettings.list_TeamA[GlobalSettings.current_round]["score"] = score
 	$CanvasLayer/ProgressBar/ScoreLabel.text = str(dict["score"])
+	$CanvasLayer/ProgressBar.value = score
 	
 func _set_final_scoreB(score):
 	var dict = GlobalSettings.list_TeamB[GlobalSettings.current_round]
 	GlobalSettings.list_TeamB[GlobalSettings.current_round]["score"] = score
 	$CanvasLayer/ProgressBar/ScoreLabel.text = str(dict["score"])
+	$CanvasLayer/ProgressBar.value = score
