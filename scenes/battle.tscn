@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl4otsd4swfcr"]
+[gd_scene load_steps=8 format=3 uid="uid://bl4otsd4swfcr"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_kg5pu"]
 [ext_resource type="AudioStream" uid="uid://cmxymwmbo5366" path="res://assets/mixkit-arcade-retro-game-over-213.wav" id="2_5ag6h"]
@@ -11,6 +11,8 @@
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ms1tw"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_up4nf"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_kg5pu")
@@ -123,5 +125,8 @@ label_settings = SubResource("LabelSettings_u8vlk")
 stream = ExtResource("2_5ag6h")
 volume_db = -17.73
 bus = &"Record"
+
+[node name="AudioStreamPlayerRecord" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_up4nf")
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]

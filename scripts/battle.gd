@@ -11,6 +11,8 @@ func _ready():
 	$CanvasLayer/TeamATextureRect.visible = true
 	_show_team_a()
 	#play sound, wait for recording and set score for player 1
+
+	
 	_play_sound()
 	await get_tree().create_timer(2.0).timeout
 	_set_final_scoreA(_audio_to_score())
@@ -96,7 +98,7 @@ func _audio_to_score():
 	var final_score = score / counter
 	print(final_score)
 	return final_score
-	
+
 	
 func _paly_text():
 	pass
