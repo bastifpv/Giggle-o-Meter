@@ -86,6 +86,7 @@ offset_bottom = -4.0
 texture = SubResource("CanvasTexture_ugpig")
 
 [node name="Label" type="Label" parent="CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect"]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 35.0
 offset_right = 177.0
@@ -109,6 +110,7 @@ offset_bottom = 546.0
 text = "Decibel-O-meter"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/DecibelOmeterTextureRect"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 178.0
 offset_right = 89.0
