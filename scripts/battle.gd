@@ -1,6 +1,7 @@
 extends Node2D
 
 var array = []
+var isAnalytic
 
 func _ready():
 	
@@ -32,7 +33,8 @@ func _ready():
 	#_on_next_button_pressed()
 
 func _process(delta):
-	if (AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"),0) > -190):
+	if isAnalytic:
+		if (AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"),0) > -190):
 			array.append(AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"),0))
 	
 
