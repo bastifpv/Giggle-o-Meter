@@ -8,8 +8,13 @@ func _ready():
 	$CanvasLayer/TeamATextureRect.visible = true
 	_show_team_a()
 	
-	_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
-	
+	if OS.get_name() == "Linux":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
+	elif OS.get_name() == "Windows":
+				_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+	elif OS.get_name() == "Android":
+				_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+		
 	await get_tree().create_timer(2.0).timeout
 
 	$CanvasLayer/TeamATextureRect.visible = false
@@ -17,7 +22,13 @@ func _ready():
 	
 	_show_team_b()
 	
-	_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
+	if OS.get_name() == "Linux":
+			_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
+	elif OS.get_name() == "Windows":
+			_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+	elif OS.get_name() == "Android":
+			_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+			
 	
 	#await get_tree().create_timer(2.0).timeout
 	
