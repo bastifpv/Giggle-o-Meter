@@ -1,21 +1,36 @@
 extends Node2D
 
+var database = load("res://scripts/database.gd").new()
+
+# get random 3 cards
+var cards = database.pick_random_cards()
+var cardData1 = cards[0]
+var cardData2 = cards[1]
+var cardData3 = cards[2]
+
+
 var dict = {}
 var selectedCardID = 0
 
 func _ready():
 	#sets team numer to layout
 	$CanvasLayer/PlayerInfo.text = "Team " + str(GlobalSettings.active_team) + "'s turn"
-
-
+	
+	
+	
+	$CanvasLayer/Cards/Card1/Card1RichTextLabel.text = str(cardData1["asset"])
+	$CanvasLayer/Cards/Card2/Card2RichTextLabel.text = str(cardData2["asset"])
+	$CanvasLayer/Cards/Card3/Card3RichTextLabel.text = str(cardData3["asset"])
 
 func card_pressed():
 	$CanvasLayer/Cards.visible = false
 	$CanvasLayer/PickACard.visible = false
 	$CanvasLayer/SelectedCard.visible = true
-
+	
+	$CanvasLayer/SelectedCard/TextureRect/SelectedCardInfoRichTextLabel.text = "[color=black]" + str(database.get_card_info(selectedCardID)[0]["asset"]) + "[/color]"
+	
 func _on_card_1_pressed():
-	selectedCardID = 1
+	selectedCardID = cardData1["cardID"]
 	card_pressed()
 	print('press card 1')
 	pass # Replace with function body.
@@ -23,14 +38,14 @@ func _on_card_1_pressed():
 
 func _on_card_2_pressed():
 
-	selectedCardID = 2
+	selectedCardID = cardData2["cardID"]
 	card_pressed()
 	print('press card 2')
 	pass # Replace with function body.
 
 
 func _on_card_3_pressed():
-	selectedCardID = 3
+	selectedCardID = cardData3["cardID"]
 	card_pressed()
 	print('press card 3')
 	pass # Replace with function body.
