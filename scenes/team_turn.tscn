@@ -90,6 +90,7 @@ offset_right = 700.0
 offset_bottom = 585.0
 
 [node name="Card2RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cards/Card2"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 23.0
 offset_right = 238.0
@@ -103,6 +104,7 @@ offset_right = 1050.0
 offset_bottom = 585.0
 
 [node name="Card3RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cards/Card3"]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 23.0
 offset_right = 232.0
