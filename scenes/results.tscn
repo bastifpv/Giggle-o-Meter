@@ -99,4 +99,14 @@ offset_right = 909.0
 offset_bottom = 99.0
 text = "Team B"
 
+[node name="WinnerLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.143
+anchor_bottom = 0.129
+offset_left = 429.0
+offset_top = 72.0
+offset_right = 569.264
+offset_bottom = 11.408
+text = "The winner is: "
+
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]

@@ -23,6 +23,13 @@ func _ready():
 	
 	# show user input team A
 	_show_team_a()
+
+	if OS.get_name() == "Linux":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
+	elif OS.get_name() == "Windows":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+	elif OS.get_name() == "Android":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
 	
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
@@ -35,6 +42,8 @@ func _ready():
 	
 	# show results team A
 	_calculate_score(list_TeamA)
+		
+	await get_tree().create_timer(2.0).timeout
 
 	# make team A invisible and make Team B visible, Decibel-O-Meter invisible
 	$CanvasLayer/TeamATextureRect.visible = false
@@ -44,8 +53,19 @@ func _ready():
 	# show user input team B
 	_show_team_b()
 	
+	if OS.get_name() == "Linux":
+		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
+	elif OS.get_name() == "Windows":
+		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+	elif OS.get_name() == "Android":
+		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+			
+
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
+	
+	#await get_tree().create_timer(2.0).timeout
+
 	
 	# record audio team A
 	_record_sound()
@@ -124,9 +144,6 @@ func _record_sound():
 	
 func _analyse_sound():
 	pass
-	
-func _play_text():
-	pass
 
 func _save_recording():
 	# var save_path = "res://assets/audio_recording.wav"
@@ -134,3 +151,10 @@ func _save_recording():
 	recording.save_to_wav(save_path)
 	
 	print("Status: Saved WAV file to: %s\n(%s)" % [save_path, ProjectSettings.globalize_path(save_path)]) 
+
+func _play_text(text, voiceNr):
+	var voices = DisplayServer.tts_get_voices_for_language("en")
+	var voice_id = voices[int(voiceNr)]
+
+	# Say "Hello, world!".
+	DisplayServer.tts_speak(str(text), voice_id)

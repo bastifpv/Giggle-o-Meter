@@ -22,6 +22,7 @@ func _on_card_1_pressed():
 
 
 func _on_card_2_pressed():
+
 	selectedCardID = 2
 	card_pressed()
 	print('press card 2')
@@ -36,6 +37,10 @@ func _on_card_3_pressed():
 
 
 func _on_button_confirm_round_pressed():
+	
+	if $CanvasLayer/SelectedCard/TextureRect/UserInputField.text.is_empty():
+		print("Text ")
+		return
 	dict = {'cardID' : selectedCardID, 'userInput' : $CanvasLayer/SelectedCard/TextureRect/UserInputField.text }
 	#print(dict)
 	print("-=-=-=-=-" + str(GlobalSettings.count_both_players_turn))
