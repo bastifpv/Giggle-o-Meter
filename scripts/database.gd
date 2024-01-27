@@ -9,6 +9,7 @@ var db_name := "res://data/cards"
 func sql_query(query):
 	db = SQLite.new()
 	db.path = db_name
+	db.read_only = true
 	db.open_db()
 	
 	# Do a normal query
