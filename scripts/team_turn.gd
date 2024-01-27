@@ -22,6 +22,7 @@ func _on_card_1_pressed():
 
 
 func _on_card_2_pressed():
+
 	selectedCardID = 2
 	card_pressed()
 	print('press card 2')
