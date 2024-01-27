@@ -21,7 +21,7 @@ func _ready():
 	# make team A visible and make Team B invisible, Decibel-O-Meter invisible
 	$CanvasLayer/TeamATextureRect.visible = true
 	$CanvasLayer/TeamBTextureRect.visible = false
-	$CanvasLayer/DecibelOmeterTextureRect.visible = false
+
 	
 	# show user input team A
 	_show_team_a()
@@ -30,8 +30,6 @@ func _ready():
 	
 	await get_tree().create_timer(5.0).timeout
 
-	# Decibel-O-Meter visible
-	$CanvasLayer/DecibelOmeterTextureRect.visible = true
 	
 	# record audio team A
 	_record_sound()
@@ -46,7 +44,6 @@ func _ready():
 	# make team A invisible and make Team B visible, Decibel-O-Meter invisible
 	$CanvasLayer/TeamATextureRect.visible = false
 	$CanvasLayer/TeamBTextureRect.visible = true
-	$CanvasLayer/DecibelOmeterTextureRect.visible = false
 	
 	# show user input team B
 	_show_team_b()
@@ -189,9 +186,9 @@ func _audio_to_score():
 func _set_final_scoreA(score):
 	var dict = GlobalSettings.list_TeamA[GlobalSettings.current_round]
 	GlobalSettings.list_TeamA[GlobalSettings.current_round]["score"] = score
-	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
+	$CanvasLayer/ProgressBar/ScoreLabel.text = str(dict["score"])
 	
 func _set_final_scoreB(score):
 	var dict = GlobalSettings.list_TeamB[GlobalSettings.current_round]
 	GlobalSettings.list_TeamB[GlobalSettings.current_round]["score"] = score
-	$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dict["score"])
+	$CanvasLayer/ProgressBar/ScoreLabel.text = str(dict["score"])
