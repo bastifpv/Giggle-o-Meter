@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhqv8fcbklfp0"]
+[gd_scene load_steps=18 format=3 uid="uid://bhqv8fcbklfp0"]
 
 [ext_resource type="Script" path="res://scripts/team_turn.gd" id="1_oypoc"]
 [ext_resource type="Texture2D" uid="uid://d1c82xwgwj8bv" path="res://assets/cardBack_blue1.png" id="2_svx21"]
 [ext_resource type="Texture2D" uid="uid://c1auoslwtr7i" path="res://assets/cardBack_blue3.png" id="3_8byn3"]
 [ext_resource type="Texture2D" uid="uid://dvligi10oqd4o" path="res://assets/cardBack_red1.png" id="3_okupn"]
+[ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="5_khcc5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jixoq"]
 font_size = 50
@@ -191,6 +192,15 @@ grow_vertical = 2
 mouse_filter = 2
 bbcode_enabled = true
 text = "Card3Asset"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1183.0
+offset_top = -21.0
+offset_right = 1878.0
+offset_bottom = 1194.0
+rotation = 1.5708
+texture = ExtResource("5_khcc5")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="CanvasLayer/SelectedCard/TextureRect/Button" to="." method="_on_button_confirm_round_pressed"]
 [connection signal="pressed" from="CanvasLayer/Cards/Card1" to="." method="_on_card_1_pressed"]

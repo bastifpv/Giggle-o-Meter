@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl4otsd4swfcr"]
+[gd_scene load_steps=8 format=3 uid="uid://bl4otsd4swfcr"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_kg5pu"]
 [ext_resource type="Texture2D" uid="uid://dqawkeuclecwf" path="res://assets/pieceWhite_border00.png" id="2_v8ist"]
 [ext_resource type="Texture2D" uid="uid://5e1buhgpvu8v" path="res://assets/pieceWhite_border02.png" id="3_c21mh"]
 [ext_resource type="Texture2D" uid="uid://dhadyednh21i8" path="res://assets/emote__.png" id="3_vc44i"]
+[ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="5_btfop"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_hbmp2"]
 
@@ -122,5 +123,14 @@ offset_right = 379.0
 offset_bottom = 105.0
 text = "Text"
 label_settings = SubResource("LabelSettings_u8vlk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1183.0
+offset_top = -21.0
+offset_right = 1878.0
+offset_bottom = 1194.0
+rotation = 1.5708
+texture = ExtResource("5_btfop")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]

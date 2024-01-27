@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8clqhbx0rqax"]
+[gd_scene load_steps=4 format=3 uid="uid://b8clqhbx0rqax"]
 
 [ext_resource type="Script" path="res://scripts/results.gd" id="1_bjfhi"]
+[ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="2_y4smt"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bl3j7"]
 
@@ -108,5 +109,14 @@ offset_top = 72.0
 offset_right = 569.264
 offset_bottom = 11.408
 text = "The winner is: "
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1183.0
+offset_top = -21.0
+offset_right = 1878.0
+offset_bottom = 1194.0
+rotation = 1.5708
+texture = ExtResource("2_y4smt")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
