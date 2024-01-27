@@ -8,12 +8,16 @@ func _ready():
 	$CanvasLayer/TeamATextureRect.visible = true
 	_show_team_a()
 	
+	_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
+	
 	await get_tree().create_timer(2.0).timeout
 
 	$CanvasLayer/TeamATextureRect.visible = false
 	$CanvasLayer/TeamBTextureRect.visible = true
 	
 	_show_team_b()
+	
+	_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
 	
 	#await get_tree().create_timer(2.0).timeout
 	
@@ -56,5 +60,10 @@ func _record_sound():
 func _analyse_sound():
 	pass
 	
-func _paly_text():
-	pass
+func _play_text(text, voiceNr):
+	var voices = DisplayServer.tts_get_voices_for_language("en")
+	var voice_id = voices[int(voiceNr)]
+
+	# Say "Hello, world!".
+	DisplayServer.tts_speak(str(text), voice_id)
+
