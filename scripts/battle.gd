@@ -14,36 +14,25 @@ func _ready():
 	var list_TeamA = GlobalSettings.list_TeamA
 	var list_TeamB = GlobalSettings.list_TeamB
 	
-	print(list_TeamA)
-	print(list_TeamB)
-	print(GlobalSettings.current_round)
 	
-	# make team A visible and make Team B invisible, Decibel-O-Meter invisible
-	$CanvasLayer/TeamATextureRect.visible = true
-	$CanvasLayer/TeamBTextureRect.visible = false
-
-	
-	# show user input team A
 	_show_team_a()
-	
 	_play_player_a()
-	
 	await get_tree().create_timer(5.0).timeout
 
-	
 	# record audio team A
 	_record_sound()
-	
+
+   #wait because fade
 	await get_tree().create_timer(5.0).timeout
 	
 	# show results team A
 	_set_final_scoreA(50)
+	#_set_final_scoreA(_audio_to_score())
 		
 	await get_tree().create_timer(2.0).timeout
 
 	# make team A invisible and make Team B visible, Decibel-O-Meter invisible
-	$CanvasLayer/TeamATextureRect.visible = false
-	$CanvasLayer/TeamBTextureRect.visible = true
+
 	
 	# show user input team B
 	_show_team_b()
@@ -53,16 +42,17 @@ func _ready():
 	await get_tree().create_timer(5.0).timeout
 	
 	# Decibel-O-Meter visible
-	$CanvasLayer/DecibelOmeterTextureRect.visible = true
+	$CanvasLayer/ProgressBar.visible = true
 	
 
-	# record audio team A
+	# record audio team B
 	_record_sound()
 	
 	await get_tree().create_timer(5.0).timeout
 	
 	# show results team B
 	_set_final_scoreB(50)
+	#_set_final_scoreB(_audio_to_score())
 	
 
 func _play_player_a():
@@ -95,6 +85,9 @@ func _on_next_button_pressed():
 
 
 func _show_team_a():
+	# make team A visible and make Team B invisible, Decibel-O-Meter invisible
+	$CanvasLayer/TeamATextureRect.visible = true
+	$CanvasLayer/TeamBTextureRect.visible = false
 	var list_TeamA = GlobalSettings.list_TeamA
 	
 	var dictA = list_TeamA[GlobalSettings.current_round]
@@ -106,6 +99,8 @@ func _show_team_a():
 	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/RichTextLabel.text = "[color=black] " + str(completeText) + " [/color]"
 		
 func _show_team_b():
+	$CanvasLayer/TeamATextureRect.visible = false
+	$CanvasLayer/TeamBTextureRect.visible = true
 	var list_TeamB = GlobalSettings.list_TeamB
 	var dictB = list_TeamB[GlobalSettings.current_round]
 	var CardID = dictB["cardID"]
@@ -121,22 +116,12 @@ func _record_sound():
 	var idx = AudioServer.get_bus_index("Record")
 	effect = AudioServer.get_bus_effect(idx, 0)
 	
-	# recording for team A
-	#if GlobalSettings.active_team == 0:
-	# print("Recording active team 0...")
 	
-	#print("Recording object: " + str(recording))
-	print("Is Recording active?: " + str(effect.is_recording_active()))
-	# start recording
 	effect.set_recording_active(true)
 	await get_tree().create_timer(3.0).timeout
-	
-	# stop recording
 	effect.set_recording_active(false)
-	print("Is Recording active still?: " + str(effect.is_recording_active()))
 	
 	recording = effect.get_recording()
-	print("Recording object: " + str(recording))
 
 	
 
