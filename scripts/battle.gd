@@ -49,3 +49,12 @@ func _calculate_score(list_Team):
 		dictTeam["score"] = 6969
 		print(" ===" + str(dictTeam))
 		$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dictTeam["score"])
+
+func _record_sound():
+	pass
+	
+func _analyse_sound():
+	pass
+	
+func _paly_text():
+	pass
