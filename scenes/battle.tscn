@@ -22,6 +22,10 @@ bus = &"Record"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 autoplay = true
 
+[node name="Tracker" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Tracker"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NextButton" type="Button" parent="CanvasLayer"]

@@ -21,16 +21,22 @@ func _ready():
 
 	# record audio team A
 	_record_sound()
-
-   #wait because fade
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(3.5).timeout
 	
+	# analyze sound
+	$Tracker.stream = recording
+	$Tracker.play()
+	
+   #wait because fade
+	await get_tree().create_timer(1.0).timeout
 	# show results team A
-	_set_final_scoreA(50)
-	#_set_final_scoreA(_audio_to_score())
+	#_set_final_scoreA(50)
+	print(_audio_to_score())
+	_set_final_scoreA(_audio_to_score())
 		
 	await get_tree().create_timer(2.0).timeout
-
+	array = []
+	
 	# make team A invisible and make Team B visible, Decibel-O-Meter invisible
 
 	
@@ -44,16 +50,31 @@ func _ready():
 	# Decibel-O-Meter visible
 	$CanvasLayer/ProgressBar.visible = true
 	
-
 	# record audio team B
 	_record_sound()
+	await get_tree().create_timer(3.5).timeout
 	
-	await get_tree().create_timer(5.0).timeout
+	# analyze sound
+	$Tracker.stream = recording
+	$Tracker.play()
+	
+   #wait because fade
+	await get_tree().create_timer(1.0).timeout
 	
 	# show results team B
-	_set_final_scoreB(50)
-	#_set_final_scoreB(_audio_to_score())
+	#_set_final_scoreA(50)
+	print(_audio_to_score())
+	_set_final_scoreB(_audio_to_score())
+		
+	await get_tree().create_timer(2.0).timeout
 	
+
+func _process(delta):
+	#print("Process function")
+	if (AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Tracker"),0) > -190):
+		var data = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Tracker"),0)
+		array.append(data)
+		#print("Data array:" + str(data))
 
 func _play_player_a():
 	var text = str(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("cardData")).replace("__________", str(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput")))
@@ -131,8 +152,8 @@ func _record_sound():
 	
 	print("Playback...")
 	
-	$AudioStreamPlayer.stream = recording
-	$AudioStreamPlayer.play()
+	#$AudioStreamPlayer.stream = recording
+	#$AudioStreamPlayer.play()
 	
 func _analyse_sound():
 	pass
