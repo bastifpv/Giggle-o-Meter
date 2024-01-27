@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl4otsd4swfcr"]
+[gd_scene load_steps=6 format=3 uid="uid://bl4otsd4swfcr"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_kg5pu"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_r3scr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ugpig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8vlk"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ms1tw"]
 
@@ -44,11 +47,20 @@ text = "Team A"
 
 [node name="SpeechBubbleTextureRect" type="TextureRect" parent="CanvasLayer/TeamATextureRect"]
 layout_mode = 0
-offset_left = 178.0
-offset_top = -121.0
-offset_right = 277.0
-offset_bottom = -10.0
+offset_left = 104.0
+offset_top = -170.0
+offset_right = 335.0
+offset_bottom = -5.0
 texture = SubResource("CanvasTexture_ugpig")
+
+[node name="Label" type="Label" parent="CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 35.0
+offset_right = 178.0
+offset_bottom = 124.0
+text = "Text"
+label_settings = SubResource("LabelSettings_u8vlk")
 
 [node name="TeamBTextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 893.0
@@ -67,25 +79,43 @@ text = "Team B"
 
 [node name="SpeechBubbleTextureRect" type="TextureRect" parent="CanvasLayer/TeamBTextureRect"]
 layout_mode = 0
-offset_left = -77.0
-offset_top = -118.0
-offset_right = 22.0
-offset_bottom = -7.0
+offset_left = -145.0
+offset_top = -170.0
+offset_right = 85.0
+offset_bottom = -4.0
 texture = SubResource("CanvasTexture_ugpig")
 
-[node name="DecibelOmeterTextureRect2" type="TextureRect" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 35.0
+offset_right = 177.0
+offset_bottom = 124.0
+text = "Text"
+label_settings = SubResource("LabelSettings_u8vlk")
+
+[node name="DecibelOmeterTextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 510.0
 offset_top = 73.0
 offset_right = 626.0
 offset_bottom = 576.0
 texture = SubResource("CanvasTexture_ms1tw")
 
-[node name="Label" type="Label" parent="CanvasLayer/DecibelOmeterTextureRect2"]
+[node name="Label" type="Label" parent="CanvasLayer/DecibelOmeterTextureRect"]
 layout_mode = 0
 offset_left = -3.0
 offset_top = 513.0
 offset_right = 124.0
 offset_bottom = 546.0
 text = "Decibel-O-meter"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/DecibelOmeterTextureRect"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 178.0
+offset_right = 89.0
+offset_bottom = 259.0
+text = "Text"
+label_settings = SubResource("LabelSettings_u8vlk")
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
