@@ -5,7 +5,7 @@ func _ready():
 
 func _on_play_button_pressed():
 	GlobalSettings.active_team = randi_range(0, 1)
-	print(GlobalSettings.active_team)
+	print("Generated Team: " + str(GlobalSettings.active_team))
 	SceneSwitcher.change_scene("res://scenes/team_turn.tscn")
 
 

@@ -37,21 +37,27 @@ func _on_card_3_pressed():
 
 func _on_button_confirm_round_pressed():
 	dict = {'cardID' : selectedCardID, 'userInput' : $CanvasLayer/SelectedCard/TextureRect/UserInputField.text }
-	print("call next player")
-	print(dict)
+	#print(dict)
+	print("-=-=-=-=-" + str(GlobalSettings.count_both_players_turn))
+	
+	print("Active Team: " + str(GlobalSettings.active_team))
+	if GlobalSettings.active_team == 0:
+		print("Team 0")
+		GlobalSettings.list_TeamA.append(dict)
+		GlobalSettings.active_team = 1
+	
+	elif GlobalSettings.active_team == 1: 
+		print("Team 1")
+		GlobalSettings.list_TeamB.append(dict)
+		GlobalSettings.active_team = 0
+
 	if GlobalSettings.count_both_players_turn < 1:
-		#reverse the active team
-		if GlobalSettings.active_team == 1:
-			GlobalSettings.list_TeamA.append(dict)
-			GlobalSettings.active_team = 0
-		else: 
-			GlobalSettings.list_TeamB.append(dict)
-			GlobalSettings.active_team = 1
-			
+		#reverse the active team		
 		#call other scene
 		GlobalSettings.count_both_players_turn +=1 
+		
 		SceneSwitcher.change_scene("res://scenes/team_turn.tscn")
 	else:
 		GlobalSettings.count_both_players_turn = 0
 		SceneSwitcher.change_scene("res://scenes/battle.tscn")
-	pass # Replace with function body.
+	

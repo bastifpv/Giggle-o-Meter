@@ -1,8 +1,11 @@
 extends Node2D
 
 func _ready():
+	print(GlobalSettings.list_TeamA)
+	print(GlobalSettings.list_TeamB)
+	print(GlobalSettings.current_round)
 	$CanvasLayer/TeamBTextureRect.visible = false
-
+	$CanvasLayer/TeamATextureRect.visible = true
 	_show_team_a()
 	
 	await get_tree().create_timer(2.0).timeout
@@ -12,9 +15,9 @@ func _ready():
 	
 	_show_team_b()
 	
-	await get_tree().create_timer(2.0).timeout
+	#await get_tree().create_timer(2.0).timeout
 	
-	_on_next_button_pressed()
+	#_on_next_button_pressed()
 
 func _on_next_button_pressed():
 	GlobalSettings.current_round +=1
@@ -25,25 +28,24 @@ func _on_next_button_pressed():
 
 
 func _show_team_a():
-	
 	var list_TeamA = GlobalSettings.list_TeamA
-	for dictA in list_TeamA:
-		var CardID = dictA["cardID"]
-		var UserInput = dictA["userInput"]
-		$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/Label.text = UserInput
-		_calculate_score(list_TeamA)
+	
+	var dictA = list_TeamA[GlobalSettings.current_round]
+	var CardID = dictA["cardID"]
+	var UserInput = dictA["userInput"]
+	$CanvasLayer/TeamATextureRect/SpeechBubbleTextureRect/Label.text = UserInput
+	_calculate_score(list_TeamA)
 		
 func _show_team_b():
-	
 	var list_TeamB = GlobalSettings.list_TeamB
-	for dictB in list_TeamB:
-		var CardID = dictB["cardID"]
-		var UserInput = dictB["userInput"]
-		$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/Label.text = UserInput
-		_calculate_score(list_TeamB)
+	var dictB = list_TeamB[GlobalSettings.current_round]
+	var CardID = dictB["cardID"]
+	var UserInput = dictB["userInput"]
+	$CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect/Label.text = UserInput
+	_calculate_score(list_TeamB)
 		
 func _calculate_score(list_Team):
 	for dictTeam in list_Team:
 		dictTeam["score"] = 6969
-		
+		print(" ===" + str(dictTeam))
 		$CanvasLayer/DecibelOmeterTextureRect/ScoreLabel.text = str(dictTeam["score"])
