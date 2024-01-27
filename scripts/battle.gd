@@ -24,13 +24,7 @@ func _ready():
 	# show user input team A
 	_show_team_a()
 
-	if OS.get_name() == "Linux":
-		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
-	elif OS.get_name() == "Windows":
-		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
-	elif OS.get_name() == "Android":
-		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
-	
+
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
 	
@@ -53,13 +47,9 @@ func _ready():
 	# show user input team B
 	_show_team_b()
 	
-	if OS.get_name() == "Linux":
-		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
-	elif OS.get_name() == "Windows":
-		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
-	elif OS.get_name() == "Android":
-		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
-			
+	_play_player_b()
+		
+
 
 	# Decibel-O-Meter visible
 	$CanvasLayer/DecibelOmeterTextureRect.visible = true
@@ -77,6 +67,22 @@ func _ready():
 	_calculate_score(list_TeamB)
 	
 
+func _play_player_a():
+	if OS.get_name() == "Linux":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 120)
+	elif OS.get_name() == "Windows":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+	elif OS.get_name() == "Android":
+		_play_text(GlobalSettings.list_TeamA[GlobalSettings.current_round].get("userInput"), 0)
+	
+func _play_player_b():
+	if OS.get_name() == "Linux":
+		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 120)
+	elif OS.get_name() == "Windows":
+		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+	elif OS.get_name() == "Android":
+		_play_text(GlobalSettings.list_TeamB[GlobalSettings.current_round].get("userInput"), 0)
+			
 
 func _on_next_button_pressed():
 	GlobalSettings.current_round +=1
