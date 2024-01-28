@@ -185,7 +185,12 @@ func _audio_to_score():
 	var out_max = 100
 	var out_min = 0
 	var counter = 0
+	if array.size() == 0:
+		return 0
+		
 	array.sort()
+	
+		
 	for x in array:
 		
 		#var calcedValue = ( (x - in_min) * (out_max - out_min) / (in_max - in_min) ) + out_min
@@ -198,6 +203,7 @@ func _audio_to_score():
 	#print("Normalized Array: "+str(scoreArr))
 	#print("Raw Array: "+str(array))
 	#print("largest value: "+str(scoreArr[-1]))
+	
 	var final_score = scoreArr[int(counter/2)]
 	if final_score >= 100:
 		final_score = 100
