@@ -199,6 +199,10 @@ func _audio_to_score():
 	#print("Raw Array: "+str(array))
 	#print("largest value: "+str(scoreArr[-1]))
 	var final_score = scoreArr[int(counter/2)]
+	if final_score >= 100:
+		final_score = 100
+	if final_score <= 0:
+		final_score = 0
 	#var final_score = score / counter
 	#print(final_score)
 	return int(final_score)
@@ -208,7 +212,7 @@ func mapToScale(dBValue):
 	var mappedValue = -10 * log(dBValue / dBMin) / log(10)
 	# Ensure the mapped value stays within the 1 to 100 range
 	mappedValue = clamp(mappedValue, 1, 100)
-	return mappedValue
+	return mappedValue *10
 
 
 func _set_final_scoreA(score):
