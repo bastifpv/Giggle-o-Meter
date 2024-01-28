@@ -68,6 +68,8 @@ func _ready():
 		
 	await get_tree().create_timer(2.0).timeout
 	
+	_on_next_button_pressed()
+	
 
 func _process(delta):
 	#print("Process function")
@@ -146,11 +148,11 @@ func _record_sound():
 
 	
 
-	print("Saving...")
+	#print("Saving...")
 	# save recording
-	_save_recording()
+	#_save_recording()
 	
-	print("Playback...")
+	#print("Playback...")
 	
 	#$AudioStreamPlayer.stream = recording
 	#$AudioStreamPlayer.play()

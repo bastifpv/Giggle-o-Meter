@@ -91,10 +91,10 @@ vertical_alignment = 1
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/SelectedCard"]
-offset_left = 380.0
-offset_top = 88.0
-offset_right = 770.0
-offset_bottom = 632.0
+offset_left = 460.0
+offset_top = 115.0
+offset_right = 850.0
+offset_bottom = 659.0
 texture = ExtResource("2_svx21")
 
 [node name="SelectedCardInfoRichTextLabel" type="RichTextLabel" parent="CanvasLayer/SelectedCard/TextureRect"]
@@ -206,7 +206,7 @@ bbcode_enabled = true
 text = "Card3Asset"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1301.0

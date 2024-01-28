@@ -29,6 +29,7 @@ bus = &"Tracker"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NextButton" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 1065.0
 offset_top = 639.0
 offset_right = 1215.0
