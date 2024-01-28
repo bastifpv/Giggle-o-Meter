@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhqv8fcbklfp0"]
+[gd_scene load_steps=22 format=3 uid="uid://bhqv8fcbklfp0"]
 
 [ext_resource type="Script" path="res://scripts/team_turn.gd" id="1_oypoc"]
+[ext_resource type="FontFile" uid="uid://c5j0xnnmkxr1r" path="res://assets/FirstTimeWriting.ttf" id="2_ct80g"]
 [ext_resource type="Texture2D" uid="uid://d1c82xwgwj8bv" path="res://assets/cardBack_blue1.png" id="2_svx21"]
 [ext_resource type="Texture2D" uid="uid://c1auoslwtr7i" path="res://assets/cardBack_blue3.png" id="3_8byn3"]
 [ext_resource type="StyleBox" uid="uid://bl1ljfiwu6jbn" path="res://assets/Styles/btn-normal.tres" id="3_k20m2"]
@@ -10,10 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="5_khcc5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jixoq"]
-font_size = 50
+font = ExtResource("2_ct80g")
+font_size = 70
+outline_size = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_eop0t"]
-font_size = 30
+font = ExtResource("2_ct80g")
+font_size = 50
+outline_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c88h1"]
 bg_color = Color(0.313726, 0.54902, 0.678431, 0.396078)
@@ -64,9 +69,10 @@ script = ExtResource("1_oypoc")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -576.5
-offset_right = 576.5
-offset_bottom = 100.0
+offset_left = -576.0
+offset_top = 8.0
+offset_right = 577.0
+offset_bottom = 108.0
 grow_horizontal = 2
 text = "Team X's Turn"
 label_settings = SubResource("LabelSettings_jixoq")
@@ -85,7 +91,7 @@ offset_right = 575.5
 offset_bottom = -186.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Pick a Card"
+text = "Pick a Card..."
 label_settings = SubResource("LabelSettings_eop0t")
 horizontal_alignment = 1
 vertical_alignment = 1
