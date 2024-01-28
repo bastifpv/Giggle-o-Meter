@@ -189,12 +189,12 @@ func _audio_to_score():
 		counter +=1
 		
 	scoreArr.sort()
-	print("Normalized Array: "+str(scoreArr))
-	print("Raw Array: "+str(array))
-	print("largest value: "+str(scoreArr[-1]))
+	#print("Normalized Array: "+str(scoreArr))
+	#print("Raw Array: "+str(array))
+	#print("largest value: "+str(scoreArr[-1]))
 	var final_score = scoreArr[int(counter/2)]
 	#var final_score = score / counter
-	print(final_score)
+	#print(final_score)
 	return int(final_score)
 
 func _set_final_scoreA(score):
