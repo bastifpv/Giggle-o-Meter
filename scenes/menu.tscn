@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://x3kr1nrmaymf"]
+[gd_scene load_steps=7 format=3 uid="uid://x3kr1nrmaymf"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_wla1y"]
 [ext_resource type="StyleBox" uid="uid://bl1ljfiwu6jbn" path="res://assets/Styles/btn-normal.tres" id="2_cv7ry"]
@@ -6,10 +6,14 @@
 [ext_resource type="StyleBox" uid="uid://cdx0j52deyo81" path="res://assets/Styles/btn-hover.tres" id="3_q82vg"]
 [ext_resource type="StyleBox" uid="uid://b5g0sb4ntnwo0" path="res://assets/Styles/btn-pressed.tres" id="4_jjf7y"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_v8u42"]
+font_size = 25
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_wla1y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 5
@@ -57,5 +61,40 @@ rotation = 1.5708
 texture = ExtResource("2_tjvi3")
 metadata/_edit_lock_ = true
 
+[node name="Options" type="CanvasLayer" parent="."]
+
+[node name="ExitButton2" type="Button" parent="Options"]
+offset_left = 482.0
+offset_top = 439.0
+offset_right = 798.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_cv7ry")
+theme_override_styles/hover = ExtResource("3_q82vg")
+theme_override_styles/pressed = ExtResource("4_jjf7y")
+text = "Back"
+
+[node name="HSlider" type="HSlider" parent="Options"]
+offset_left = 486.0
+offset_top = 358.0
+offset_right = 796.0
+offset_bottom = 441.0
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="Label" type="Label" parent="Options"]
+offset_left = 495.0
+offset_top = 314.0
+offset_right = 790.0
+offset_bottom = 378.0
+text = "X rounds per Game"
+label_settings = SubResource("LabelSettings_v8u42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Options/ExitButton2" to="." method="_on_back_button_pressed"]
+[connection signal="drag_ended" from="Options/HSlider" to="." method="_on_h_slider_drag_ended"]
