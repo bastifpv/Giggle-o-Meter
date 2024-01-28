@@ -53,8 +53,7 @@ text = "Team A"
 
 [node name="SpeechBubbleTextureRect" type="TextureRect" parent="CanvasLayer/TeamATextureRect"]
 layout_mode = 0
-offset_left = 59.0
-offset_top = -149.0
+offset_top = -204.0
 offset_right = 259.0
 offset_bottom = 1.0
 texture = ExtResource("3_vc44i")
@@ -63,8 +62,8 @@ texture = ExtResource("3_vc44i")
 layout_mode = 0
 offset_left = 13.0
 offset_top = 13.0
-offset_right = 186.0
-offset_bottom = 112.0
+offset_right = 237.0
+offset_bottom = 165.0
 bbcode_enabled = true
 text = "TEXT"
 
@@ -85,18 +84,18 @@ text = "Team B"
 
 [node name="SpeechBubbleTextureRect" type="TextureRect" parent="CanvasLayer/TeamBTextureRect"]
 layout_mode = 0
-offset_left = -63.0
-offset_top = -153.0
-offset_right = 137.0
-offset_bottom = -3.0
+offset_left = -95.0
+offset_top = -206.0
+offset_right = 164.0
+offset_bottom = -1.0
 texture = ExtResource("3_vc44i")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TeamBTextureRect/SpeechBubbleTextureRect"]
 layout_mode = 0
-offset_left = 11.0
+offset_left = 16.0
 offset_top = 13.0
-offset_right = 184.0
-offset_bottom = 112.0
+offset_right = 247.0
+offset_bottom = 165.0
 bbcode_enabled = true
 text = "TEXT"
 
