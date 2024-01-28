@@ -1,114 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8clqhbx0rqax"]
+[gd_scene load_steps=3 format=3 uid="uid://b8clqhbx0rqax"]
 
 [ext_resource type="Script" path="res://scripts/results.gd" id="1_bjfhi"]
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="2_y4smt"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_bl3j7"]
 
 [node name="Results" type="Node2D"]
 script = ExtResource("1_bjfhi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CardsALabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.073
-anchor_bottom = 0.093
-offset_left = 102.0
-offset_top = 576.0
-offset_right = 214.904
-offset_bottom = 541.736
-text = "Used Cards: "
-
-[node name="userInputALabel" type="Label" parent="CanvasLayer"]
-offset_left = 103.0
-offset_top = 595.0
-offset_right = 280.0
-offset_bottom = 632.0
-text = "Input: "
-
 [node name="scoreALabel" type="Label" parent="CanvasLayer"]
-offset_left = 102.0
-offset_top = 615.0
-offset_right = 150.0
-offset_bottom = 657.0
+offset_left = 320.0
+offset_top = 551.0
+offset_right = 368.0
+offset_bottom = 593.0
 text = "Score:"
-
-[node name="CardsBLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.073
-anchor_bottom = 0.093
-offset_left = 690.0
-offset_top = 576.0
-offset_right = 802.904
-offset_bottom = 541.736
-text = "Used Cards: "
-
-[node name="userInputBLabel" type="Label" parent="CanvasLayer"]
-offset_left = 690.0
-offset_top = 595.0
-offset_right = 867.0
-offset_bottom = 632.0
-text = "Input: "
 
 [node name="scoreBLabel" type="Label" parent="CanvasLayer"]
-offset_left = 691.0
-offset_top = 617.0
-offset_right = 739.0
-offset_bottom = 663.0
+offset_left = 752.0
+offset_top = 551.0
+offset_right = 800.0
+offset_bottom = 597.0
 text = "Score:"
 
-[node name="InfoLabel" type="Label" parent="CanvasLayer"]
-offset_left = 531.0
-offset_top = 19.0
-offset_right = 587.0
-offset_bottom = 42.0
-text = "Results"
-
 [node name="NextButton" type="Button" parent="CanvasLayer"]
-offset_left = 1009.0
-offset_top = 587.0
-offset_right = 1130.0
-offset_bottom = 634.0
-text = "Next "
-
-[node name="TeamATextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 95.0
-offset_top = 110.0
-offset_right = 483.0
-offset_bottom = 571.0
-texture = SubResource("CanvasTexture_bl3j7")
-
-[node name="TeamBTextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 680.0
-offset_top = 115.0
-offset_right = 1062.0
-offset_bottom = 572.0
-texture = SubResource("CanvasTexture_bl3j7")
+offset_left = 1074.0
+offset_top = 638.0
+offset_right = 1195.0
+offset_bottom = 685.0
+text = "Finish"
 
 [node name="TeamALabel" type="Label" parent="CanvasLayer"]
-offset_left = 244.0
-offset_top = 78.0
-offset_right = 321.0
-offset_bottom = 101.0
+offset_left = 320.0
+offset_top = 151.0
+offset_right = 397.0
+offset_bottom = 174.0
 text = "Team A"
 
 [node name="TeamBLabel" type="Label" parent="CanvasLayer"]
-offset_left = 832.0
-offset_top = 76.0
-offset_right = 909.0
-offset_bottom = 99.0
+offset_left = 765.0
+offset_top = 151.0
+offset_right = 842.0
+offset_bottom = 174.0
 text = "Team B"
 
 [node name="WinnerLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.143
-anchor_bottom = 0.129
-offset_left = 429.0
-offset_top = 72.0
-offset_right = 569.264
-offset_bottom = 11.408
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.132
+offset_top = 41.0
+offset_right = 70.132
+offset_bottom = 64.0
+grow_horizontal = 2
 text = "The winner is: "
+
+[node name="ProgressBarA" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 297.0
+offset_top = 541.0
+offset_right = 656.0
+offset_bottom = 651.0
+rotation = -1.5708
+show_percentage = false
+
+[node name="ProgressBarB" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 741.0
+offset_top = 535.0
+offset_right = 1100.0
+offset_bottom = 645.0
+rotation = -1.5708
+show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 1301.0

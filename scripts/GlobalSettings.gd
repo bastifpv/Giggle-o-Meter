@@ -13,5 +13,5 @@ var list_TeamB = []
 
 
 ## Config vars to control game behavior - CAN CHANGE
-var total_rounds = 2
+var total_rounds = 1
 

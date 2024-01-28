@@ -42,15 +42,12 @@ func _ready():
 	elif total_score_TeamA == total_score_TeamB:
 		$CanvasLayer/WinnerLabel.text =  "It is a draw! Both teams win."
 		
-		
-	$CanvasLayer/CardsALabel.text = str(cardIDs_TeamA)
-	$CanvasLayer/userInputALabel.text = str(userInput_TeamA)
-	$CanvasLayer/scoreALabel.text = str(score_TeamA)
-		
-	$CanvasLayer/CardsBLabel.text = str(cardIDs_TeamB)
-	$CanvasLayer/userInputBLabel.text = str(userInput_TeamB)
-	$CanvasLayer/scoreBLabel.text = str(score_TeamB)
+	$CanvasLayer/ProgressBarA.value = total_score_TeamA / GlobalSettings.total_rounds
+	$CanvasLayer/ProgressBarB.value = total_score_TeamB / GlobalSettings.total_rounds
+
+	$CanvasLayer/scoreALabel.text = "Total score: " + str(total_score_TeamA)
+	$CanvasLayer/scoreBLabel.text = "Total score: " + str(total_score_TeamB)
 				
 func _on_next_button_pressed():
-	print("Game finished")
-	#SceneSwitcher.change_scene("res://scenes/team_turn.tscn", {"active_team":0})
+	#print("Game finished")
+	SceneSwitcher.change_scene("res://scenes/menu.tscn")

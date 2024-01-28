@@ -110,7 +110,6 @@ offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]
@@ -140,4 +139,14 @@ rotation = 1.5708
 texture = ExtResource("5_btfop")
 metadata/_edit_lock_ = true
 
+[node name="ReadyButton" type="Button" parent="."]
+visible = false
+offset_left = 494.0
+offset_top = 639.0
+offset_right = 766.0
+offset_bottom = 690.0
+rotation = -6.28319
+text = "Next Team! Are you ready?"
+
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]

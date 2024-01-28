@@ -9,6 +9,8 @@ var format := 1  # This equals to the default format: 16 bits
 
 var array = []
 
+var readyTeam = false
+
 func _ready():
 	
 	var list_TeamA = GlobalSettings.list_TeamA
@@ -35,11 +37,12 @@ func _ready():
 	_set_final_scoreA(_audio_to_score())
 		
 	await get_tree().create_timer(2.0).timeout
+	
+	$CanvasLayer/ProgressBar.value = 0
+	
 	array = []
 	
 	# make team A invisible and make Team B visible, Decibel-O-Meter invisible
-
-	
 	# show user input team B
 	_show_team_b()
 	
@@ -210,3 +213,7 @@ func _set_final_scoreB(score):
 	GlobalSettings.list_TeamB[GlobalSettings.current_round]["score"] = score
 	$CanvasLayer/ProgressBar/ScoreLabel.text = str(dict["score"])
 	$CanvasLayer/ProgressBar.value = score
+
+
+func _on_ready_button_pressed():
+	readyTeam = true
