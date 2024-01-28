@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://x3kr1nrmaymf"]
+[gd_scene load_steps=6 format=3 uid="uid://x3kr1nrmaymf"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_wla1y"]
+[ext_resource type="StyleBox" uid="uid://bl1ljfiwu6jbn" path="res://assets/Styles/btn-normal.tres" id="2_cv7ry"]
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="2_tjvi3"]
+[ext_resource type="StyleBox" uid="uid://cdx0j52deyo81" path="res://assets/Styles/btn-hover.tres" id="3_q82vg"]
+[ext_resource type="StyleBox" uid="uid://b5g0sb4ntnwo0" path="res://assets/Styles/btn-pressed.tres" id="4_jjf7y"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_wla1y")
@@ -17,6 +20,10 @@ offset_top = 145.0
 offset_right = 158.0
 offset_bottom = 252.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_cv7ry")
+theme_override_styles/hover = ExtResource("3_q82vg")
+theme_override_styles/pressed = ExtResource("4_jjf7y")
 text = "Play"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
@@ -24,6 +31,10 @@ offset_left = 482.0
 offset_top = 439.0
 offset_right = 798.0
 offset_bottom = 546.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_cv7ry")
+theme_override_styles/hover = ExtResource("3_q82vg")
+theme_override_styles/pressed = ExtResource("4_jjf7y")
 text = "Exit"
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer"]
@@ -31,6 +42,10 @@ offset_left = 482.0
 offset_top = 291.0
 offset_right = 798.0
 offset_bottom = 398.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_cv7ry")
+theme_override_styles/hover = ExtResource("3_q82vg")
+theme_override_styles/pressed = ExtResource("4_jjf7y")
 text = "Options"
 
 [node name="TextureRect" type="TextureRect" parent="."]

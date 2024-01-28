@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhqv8fcbklfp0"]
+[gd_scene load_steps=21 format=3 uid="uid://bhqv8fcbklfp0"]
 
 [ext_resource type="Script" path="res://scripts/team_turn.gd" id="1_oypoc"]
 [ext_resource type="Texture2D" uid="uid://d1c82xwgwj8bv" path="res://assets/cardBack_blue1.png" id="2_svx21"]
 [ext_resource type="Texture2D" uid="uid://c1auoslwtr7i" path="res://assets/cardBack_blue3.png" id="3_8byn3"]
+[ext_resource type="StyleBox" uid="uid://bl1ljfiwu6jbn" path="res://assets/Styles/btn-normal.tres" id="3_k20m2"]
 [ext_resource type="Texture2D" uid="uid://dvligi10oqd4o" path="res://assets/cardBack_red1.png" id="3_okupn"]
+[ext_resource type="StyleBox" uid="uid://cdx0j52deyo81" path="res://assets/Styles/btn-hover.tres" id="4_xv1rt"]
+[ext_resource type="StyleBox" uid="uid://b5g0sb4ntnwo0" path="res://assets/Styles/btn-pressed.tres" id="5_57obh"]
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="5_khcc5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jixoq"]
@@ -125,11 +128,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c88h1")
 placeholder_text = "  put your answer here"
 
 [node name="Button" type="Button" parent="CanvasLayer/SelectedCard/TextureRect"]
-layout_mode = 0
-offset_left = 57.0
+layout_mode = 1
+offset_left = 26.0
 offset_top = 469.0
-offset_right = 331.0
-offset_bottom = 519.0
+offset_right = 365.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_k20m2")
+theme_override_styles/hover = ExtResource("4_xv1rt")
+theme_override_styles/pressed = ExtResource("5_57obh")
 text = "GO!"
 
 [node name="Cards" type="CanvasLayer" parent="CanvasLayer"]

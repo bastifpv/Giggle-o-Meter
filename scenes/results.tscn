@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8clqhbx0rqax"]
+[gd_scene load_steps=6 format=3 uid="uid://b8clqhbx0rqax"]
 
 [ext_resource type="Script" path="res://scripts/results.gd" id="1_bjfhi"]
+[ext_resource type="StyleBox" uid="uid://bl1ljfiwu6jbn" path="res://assets/Styles/btn-normal.tres" id="2_gelt2"]
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="2_y4smt"]
+[ext_resource type="StyleBox" uid="uid://cdx0j52deyo81" path="res://assets/Styles/btn-hover.tres" id="3_tm7rx"]
+[ext_resource type="StyleBox" uid="uid://b5g0sb4ntnwo0" path="res://assets/Styles/btn-pressed.tres" id="4_djj82"]
 
 [node name="Results" type="Node2D"]
 script = ExtResource("1_bjfhi")
@@ -23,10 +26,20 @@ offset_bottom = 597.0
 text = "Score:"
 
 [node name="NextButton" type="Button" parent="CanvasLayer"]
-offset_left = 1074.0
-offset_top = 638.0
-offset_right = 1195.0
-offset_bottom = 685.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = ExtResource("2_gelt2")
+theme_override_styles/hover = ExtResource("3_tm7rx")
+theme_override_styles/pressed = ExtResource("4_djj82")
 text = "Finish"
 
 [node name="TeamALabel" type="Label" parent="CanvasLayer"]
@@ -47,11 +60,12 @@ text = "Team B"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -70.132
-offset_top = 41.0
-offset_right = 70.132
-offset_bottom = 64.0
+offset_left = -328.0
+offset_top = 24.0
+offset_right = 326.0
+offset_bottom = 93.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
 text = "The winner is: "
 
 [node name="ProgressBarA" type="ProgressBar" parent="CanvasLayer"]
