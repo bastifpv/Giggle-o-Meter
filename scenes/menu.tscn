@@ -1,28 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://x3kr1nrmaymf"]
+[gd_scene load_steps=10 format=3 uid="uid://x3kr1nrmaymf"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_wla1y"]
 [ext_resource type="StyleBox" uid="uid://bl1ljfiwu6jbn" path="res://assets/Styles/btn-normal.tres" id="2_cv7ry"]
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="2_tjvi3"]
 [ext_resource type="StyleBox" uid="uid://cdx0j52deyo81" path="res://assets/Styles/btn-hover.tres" id="3_q82vg"]
 [ext_resource type="StyleBox" uid="uid://b5g0sb4ntnwo0" path="res://assets/Styles/btn-pressed.tres" id="4_jjf7y"]
+[ext_resource type="Texture2D" uid="uid://cym6th0k5aqj7" path="res://assets/Styles/blue_sliderDown.png" id="6_thyob"]
+[ext_resource type="FontFile" uid="uid://c5j0xnnmkxr1r" path="res://assets/FirstTimeWriting.ttf" id="7_4dbbi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v8u42"]
-font_size = 25
+font = ExtResource("7_4dbbi")
+font_size = 50
+outline_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_vywch"]
+font = ExtResource("7_4dbbi")
+font_size = 100
+outline_size = 10
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_wla1y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -158.0
-offset_top = 145.0
+offset_top = 170.0
 offset_right = 158.0
-offset_bottom = 252.0
+offset_bottom = 277.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("2_cv7ry")
@@ -32,9 +40,9 @@ text = "Play"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
 offset_left = 482.0
-offset_top = 439.0
+offset_top = 462.0
 offset_right = 798.0
-offset_bottom = 546.0
+offset_bottom = 569.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("2_cv7ry")
 theme_override_styles/hover = ExtResource("3_q82vg")
@@ -43,9 +51,9 @@ text = "Exit"
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer"]
 offset_left = 482.0
-offset_top = 291.0
+offset_top = 316.0
 offset_right = 798.0
-offset_bottom = 398.0
+offset_bottom = 423.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("2_cv7ry")
 theme_override_styles/hover = ExtResource("3_q82vg")
@@ -65,9 +73,9 @@ metadata/_edit_lock_ = true
 
 [node name="ExitButton2" type="Button" parent="Options"]
 offset_left = 482.0
-offset_top = 439.0
+offset_top = 462.0
 offset_right = 798.0
-offset_bottom = 546.0
+offset_bottom = 569.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("2_cv7ry")
 theme_override_styles/hover = ExtResource("3_q82vg")
@@ -79,17 +87,26 @@ offset_left = 486.0
 offset_top = 358.0
 offset_right = 796.0
 offset_bottom = 441.0
+theme_override_icons/grabber = ExtResource("6_thyob")
 min_value = 1.0
 max_value = 10.0
 value = 1.0
 
 [node name="Label" type="Label" parent="Options"]
-offset_left = 495.0
-offset_top = 314.0
-offset_right = 790.0
-offset_bottom = 378.0
+offset_left = 445.0
+offset_top = 308.0
+offset_right = 834.0
+offset_bottom = 372.0
 text = "X rounds per Game"
 label_settings = SubResource("LabelSettings_v8u42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1282.0
+offset_bottom = 158.0
+text = "Giggle-o-Meter"
+label_settings = SubResource("LabelSettings_vywch")
 horizontal_alignment = 1
 vertical_alignment = 1
 

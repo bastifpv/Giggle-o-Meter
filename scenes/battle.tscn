@@ -1,12 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl4otsd4swfcr"]
+[gd_scene load_steps=11 format=3 uid="uid://bl4otsd4swfcr"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_kg5pu"]
 [ext_resource type="Texture2D" uid="uid://dqawkeuclecwf" path="res://assets/pieceWhite_border00.png" id="2_v8ist"]
 [ext_resource type="Texture2D" uid="uid://5e1buhgpvu8v" path="res://assets/pieceWhite_border02.png" id="3_c21mh"]
+[ext_resource type="LabelSettings" uid="uid://oxphpo7y3lxx" path="res://assets/Styles/team-label.tres" id="3_ltcie"]
 [ext_resource type="Texture2D" uid="uid://dhadyednh21i8" path="res://assets/emote__.png" id="3_vc44i"]
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="5_btfop"]
+[ext_resource type="FontFile" uid="uid://c5j0xnnmkxr1r" path="res://assets/FirstTimeWriting.ttf" id="6_vvrgy"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_hbmp2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sosyt"]
+font = ExtResource("6_vvrgy")
+font_size = 40
+outline_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_u8vlk"]
 font_color = Color(0, 0, 0, 1)
@@ -45,11 +52,12 @@ texture = ExtResource("2_v8ist")
 
 [node name="Label" type="Label" parent="CanvasLayer/TeamATextureRect"]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 161.0
-offset_right = 237.0
-offset_bottom = 194.0
+offset_left = 145.0
+offset_top = 163.0
+offset_right = 311.0
+offset_bottom = 221.0
 text = "Team A"
+label_settings = ExtResource("3_ltcie")
 
 [node name="SpeechBubbleTextureRect" type="TextureRect" parent="CanvasLayer/TeamATextureRect"]
 layout_mode = 0
@@ -76,11 +84,12 @@ texture = ExtResource("3_c21mh")
 
 [node name="Label" type="Label" parent="CanvasLayer/TeamBTextureRect"]
 layout_mode = 0
-offset_left = -52.0
-offset_top = 156.0
-offset_right = 25.0
-offset_bottom = 189.0
+offset_left = -110.0
+offset_top = 161.0
+offset_right = 48.0
+offset_bottom = 219.0
 text = "Team B"
+label_settings = ExtResource("3_ltcie")
 
 [node name="SpeechBubbleTextureRect" type="TextureRect" parent="CanvasLayer/TeamBTextureRect"]
 layout_mode = 0
@@ -114,13 +123,14 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]
 layout_mode = 0
-offset_left = -40.0
-offset_top = -8.00012
-offset_right = 133.0
-offset_bottom = 24.9999
+offset_left = -23.9998
+offset_top = -72.0001
+offset_right = 251.0
+offset_bottom = -25.0001
 rotation = 1.5708
 theme_override_font_sizes/font_size = 20
 text = "Decibel-O-meter"
+label_settings = SubResource("LabelSettings_sosyt")
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/ProgressBar"]
 visible = false
