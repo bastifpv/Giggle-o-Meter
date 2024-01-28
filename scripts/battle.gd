@@ -177,23 +177,26 @@ func _play_text(text, voiceNr):
 func _audio_to_score():
 	var score = 0
 	var scoreArr = []
-	var in_min = -200
-	var in_max = 0
+	var in_min = -70
+	var in_max = -10
 	var out_max = 100
 	var out_min = 0
 	var counter = 0
+	array.sort()
 	for x in array:
+		
 		var calcedValue = ( (x - in_min) * (out_max - out_min) / (in_max - in_min) ) + out_min
 		scoreArr.append(calcedValue)
 		score += calcedValue
 		counter +=1
 		
-	array.sort()
-	#print(scoreArr)
-	#print(array)
+	scoreArr.sort()
+	#print("Normalized Array: "+str(scoreArr))
+	#print("Raw Array: "+str(array))
+	#print("largest value: "+str(scoreArr[-1]))
 	var final_score = scoreArr[int(counter/2)]
 	#var final_score = score / counter
-	print(final_score)
+	#print(final_score)
 	return int(final_score)
 
 func _set_final_scoreA(score):
