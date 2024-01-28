@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ddcmqxfb8yipj" path="res://assets/cardBack_green3.png" id="2_tjvi3"]
 [ext_resource type="StyleBox" uid="uid://cdx0j52deyo81" path="res://assets/Styles/btn-hover.tres" id="3_q82vg"]
 [ext_resource type="StyleBox" uid="uid://b5g0sb4ntnwo0" path="res://assets/Styles/btn-pressed.tres" id="4_jjf7y"]
-[ext_resource type="Texture2D" uid="uid://cym6th0k5aqj7" path="res://assets/Styles/blue_sliderDown.png" id="6_thyob"]
+[ext_resource type="Texture2D" uid="uid://cym6th0k5aqj7" path="res://assets/blue_sliderDown.png" id="6_thyob"]
 [ext_resource type="FontFile" uid="uid://c5j0xnnmkxr1r" path="res://assets/FirstTimeWriting.ttf" id="7_4dbbi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v8u42"]
@@ -28,6 +28,7 @@ outline_size = 5
 script = ExtResource("1_wla1y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 5
@@ -76,7 +77,6 @@ texture = ExtResource("2_tjvi3")
 metadata/_edit_lock_ = true
 
 [node name="Options" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ExitButton2" type="Button" parent="Options"]
 offset_left = 482.0
@@ -95,6 +95,9 @@ offset_top = 358.0
 offset_right = 796.0
 offset_bottom = 441.0
 theme_override_icons/grabber = ExtResource("6_thyob")
+theme_override_icons/grabber_highlight = ExtResource("6_thyob")
+theme_override_icons/grabber_disabled = ExtResource("6_thyob")
+theme_override_icons/tick = ExtResource("6_thyob")
 min_value = 1.0
 max_value = 10.0
 value = 1.0

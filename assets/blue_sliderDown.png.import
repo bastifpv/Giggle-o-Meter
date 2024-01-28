@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5aric0yr5fk2"
-path="res://.godot/imported/blue_panel.png-80d9b9d26a6c0b283a07d6c08cbc5ed3.ctex"
+uid="uid://cym6th0k5aqj7"
+path="res://.godot/imported/blue_sliderDown.png-2b6127940d5d537fb4feda2e78c97cf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Styles/blue_panel.png"
-dest_files=["res://.godot/imported/blue_panel.png-80d9b9d26a6c0b283a07d6c08cbc5ed3.ctex"]
+source_file="res://assets/blue_sliderDown.png"
+dest_files=["res://.godot/imported/blue_sliderDown.png-2b6127940d5d537fb4feda2e78c97cf6.ctex"]
 
 [params]
 
