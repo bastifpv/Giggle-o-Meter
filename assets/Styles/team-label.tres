@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://oxphpo7y3lxx"]
+
+[ext_resource type="FontFile" uid="uid://c5j0xnnmkxr1r" path="res://assets/FirstTimeWriting.ttf" id="1_gmhof"]
+
+[resource]
+font = ExtResource("1_gmhof")
+font_size = 50
+outline_size = 4
